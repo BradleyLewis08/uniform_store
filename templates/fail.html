@@ -1,0 +1,10 @@
+<!-- A versatile failure page that displays a custom message, and has a link back to a certain route depending on which link was passed to the template as a parameter. -->
+{% extends "layout.html" %}
+{% block content %}
+    <div class="page_center">
+        <!-- Displays whichever error message that was passed as a parameter into the template -->
+        <h1 class="mb-3">{{ message }}</h1>
+        <!-- A link that navigates back to whichever route that was passed as a parameter into the template -->
+        <a href="{{ link }}">Back to safety</a>
+    </div>
+{% endblock %}

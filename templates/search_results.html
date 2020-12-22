@@ -1,0 +1,11 @@
+<!-- Page used to list all the results of a user's search -->
+{% extends "nav.html" %}
+{% block page %}
+    <!-- Iterates through the list of search results and displays them as a list of clickable links which will take them to the item's order page -->
+    <h1>Search Results</h1>
+    {% for item in results %}
+        <a href="/display/{{ item }}">{{ item }}</a><br>
+    {% endfor %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!-- Page that allows an admin user to update stock levels -->
+{% extends "layout.html" %}
+ 
+{% block content %}
+    <div class="page_center">
+        <h1 class="mb-3">Update stocks</h1><br>
+        <!-- Displays the details of the item that is being inspected -->
+        <h5>Stock info for {{ item[0][1] }} (Item ID: {{item[0][0] }})</h5><br>
+        <h5>Current Stock level: {{ item[0][4] }}</h5>
+        <!-- Form that allows the admin user to enter the quantity they wish to add or take away -->
+        <form action="/admin/stocks/{{ item[0][0] }}" method="POST" autocomplete="off">  
+            <div class="form-group">
+                <input type="number" placeholder="Quantity to add" name="quantity_added" class="form-control mb-2" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Stocks</button>
+        </form>
+    </div>
+{% endblock %}

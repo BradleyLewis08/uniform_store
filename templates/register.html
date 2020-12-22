@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+    <div class="page_center">
+        <h1 class="mb-3">Just a few details...</h1>
+        <!-- Form to be used to pass the user's desired account details to the server to be processed, verified and eventually stored-->
+        <form action="/register" method="POST" autocomplete="off">  
+            <div class="form-group">
+                <input autocomplete="off" type="text" placeholder="First Name" name="first_name" class="form-control mb-2" required>
+                <input autocomplete="off" type="text" placeholder="Last Name" name="last_name" class="form-control mb-2" required>
+                <input autocomplete="off" type="text" placeholder="Email Address" name="email" class="form-control mb-2" required>
+                <input autocomplete="off" type="password" placeholder="Password" name="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <!-- Link to allow the user to navigate to the Login page if they already have an account -->
+        <p>Already have an account?</p>
+        <a href="/login">Login</a>
+    </div>
+{% endblock %}

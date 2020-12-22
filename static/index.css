@@ -1,0 +1,54 @@
+h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+ 
+select:invalid { 
+    color: gray; 
+}
+ 
+/* div for entire page */
+#wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+/* Adding this to a div will vertically and horizontally center */
+.page_center {
+    display: block;
+    position: relative;
+    text-align: center;
+    left:50%;
+    top: 50%;
+    width:500px;
+    transform: translate(-50%, -50%);  
+}
+ 
+.form-control {
+    width: 300px;
+    margin-left: 20%;
+}
+ 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;}

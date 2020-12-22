@@ -1,0 +1,21 @@
+<!-- Places a navigation bar on the top of this page -->
+{% extends "nav.html" %}
+{% block page %}
+    <!-- HTML form that passes data to the '/order' route via a POST method.-->
+    <form action="/order" method="POST">
+        <h1>{{ item }}</h1>
+        <h3>Sizes</h3>
+        <!-- Takes the list of available sizes passed into the template as a parameter and iterates through the list. Each size is given a radio button that, when selected, passes the size back to the server to be processed. -->
+        {% for size in sizes %}
+                <input type="radio" name="size" value="{{ size }}" required>{{ size }}
+        {% endfor %}
+        <!-- Use of variables passed into the template to display the details of each item -->
+        <h3>Price</h3>
+        <h3>RM {{ price }}</h3>
+        <!-- Gets the user to input the quantity they wish to order. The minimum quantity is set to 1. -->
+        <input type="number" name="quantity" min=1 required>Quantity<br>
+        <!-- Submit button allows users to pass their data to the server. -->
+        <button type="submit">Order Item</button>
+    </form>
+{% endblock %}
+</html>

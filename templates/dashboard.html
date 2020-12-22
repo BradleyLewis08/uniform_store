@@ -1,0 +1,14 @@
+ 
+<!-- Uses the 'layout' header to center page content. -->
+{% extends "layout.html" %}
+<!-- This indicates that the content within these 'block' tags is to be placed where the 'block' tags are present within the 'layout.html' file. -->
+{% block content %}
+    <div class="page_center">
+        <h1 class="mb-3">Welcome to the admin dashboard</h1>
+        <!-- Link to the page where admins can see and manage all orders in the database -->
+        <a href="/admin/orders">See all orders</a><br>
+        <!-- Link to the page where admins can see and manage stock quantities of all uniform products -->
+        <a href="/admin/products">Manage Products</a><br>
+        <a href="/logout">Logout</a>
+    </div>
+{% endblock %}

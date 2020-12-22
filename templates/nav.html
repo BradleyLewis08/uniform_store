@@ -1,0 +1,65 @@
+<!-- Navigation bar that is present on the website for ease of navigation through the site -->
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+.navigation-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+ 
+li {
+  float: left;
+}
+ 
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+ 
+li a:hover {
+  background-color: #111;
+}
+table {
+      width:100%;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+    }
+    table#t01 tr:nth-child(even) {
+      background-color: #eee;
+    }
+    table#t01 tr:nth-child(odd) {
+     background-color: #fff;
+    }
+    table#t01 th {
+      background-color: black;
+      color: white;
+    }
+</style>
+</head>
+<body>
+ 
+<ul class="navigation-bar">
+  <li><a class="active" href="/display">Home</a></li>
+  <li><a href="/orders">Orders</a></li>
+  <li><a href="/search">Search</a></li>
+  <li><a href="/logout">Logout</a></li>
+  <!-- This link can only be accessed if the user who clicks it is logged in as an admin -->
+  <li><a href="/admin">Admin Dashboard</a></li>
+</ul>
+{% block page %}{% endblock %}
+</body>
+</html>

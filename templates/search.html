@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+    <div class="page_center">
+        <h1 class="mb-3">Search for an item</h1>
+        <!-- Form that presents a user with a search bar to be able to search the database for items -->
+        <form action="/search" method="POST">  
+            <div class="form-group">
+                <input type="text" placeholder="Search..." name="search" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+{% endblock %}

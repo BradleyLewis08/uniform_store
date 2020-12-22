@@ -1,0 +1,12 @@
+<!-- Page to display all available products to the user-->
+{% extends "nav.html" %}
+{% block page %}
+    <h1>Available Items</h1>
+    <!-- Jinja Template for loop used to iterate through the list of items and create links for each of them -->
+    {% for item in items %}
+        <!-- Each link leads to the display page for each individual item -->
+            <a href="/display/{{ item }}">{{ item }}</a><br>
+    {% endfor %}
+{% endblock %}
+</body>
+</html>        

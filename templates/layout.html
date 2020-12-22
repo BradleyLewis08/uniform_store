@@ -1,0 +1,23 @@
+<!-- Header to be used to help format templates. This is mainly used to center page content. -->
+ 
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Uses 'index.css' as a custom stylesheet along with the Bootstrap CSS library for aesthetic purposes-->
+    <link rel="stylesheet" href="/static/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- Any HTML templates that extend 'layout.html' will have its content where the block tags are and thus will all be in the 'wrapper' div which helps center the content on the page. -->
+    <div id="wrapper">  
+      {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>

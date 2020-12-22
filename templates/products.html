@@ -1,0 +1,30 @@
+<!-- This page allows admins to view all the available products and their corresponding stock levels -->
+{% extends "nav.html" %}
+{% block page %}
+<table>
+    <tr>
+      <th>Item name</th>
+      <th>Item ID</th>
+      <th>Stock remaining</th>
+    </tr>
+    <!-- Iterates through each product in the list passed to the template as a parameter -->
+    {% for product in products %}
+        <tr>
+            <!-- Places the data in the appropriate column -->
+            <td>{{ product[1] }}</td>
+            <td>{{ product[0] }}</td>
+            <td>{{ product[4] }}
+                <!-- If the quantity of the product is below 20, a warning message is displayed next to the quantity-->
+                {% if product[4] < 20 and product[4] > 0 %}
+                    (Low Stock Remaining!)
+                <!-- If the quantity of the product is below 0, a warning message is displayed next to the quantity-->
+                {% elif product[4] == 0 %}
+                    (Out Of Stock!)
+                {% endif %}
+            </td>
+            <!-- Each product has a button that can be clicked to update its stock level-->
+            <td><a href="/admin/stocks/{{ product[0] }}" class="btn btn-primary">Update stocks</a></td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

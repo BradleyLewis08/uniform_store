@@ -1,0 +1,33 @@
+ 
+{% extends "nav.html" %}
+{% block page %}
+ 
+<table>
+    <tr>
+      <th>User ID</th>
+      <th>Order ID</th>
+      <th>Item ID</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Date Ordered</th>
+      <th>Status</th>
+    </tr>
+    <!-- Iterates through all orders passed as a parameter to the template -->
+    {% for order in orders %}
+        <tr>
+            <!-- Places each piece of data under the appropriate table column heading -->
+            <td>{{ order[4] }}</td>
+            <td>{{ order[0] }}</td>
+            <td>{{ order[1] }}</td>
+            <td>{{ order[2] }}</td>
+            <td>RM  {{ order[5] }}</td>
+            <td>{{ order[3] }}</td>
+            <td>{{ order[6] }}</td>
+            <!-- If the order status is 'Incomplete' a button is made available for the admin to press to change the order status to 'pending'.-->
+            {% if order[6] == "Incomplete" %}
+                <td><a href="/complete/{{ order[0] }}" class="btn btn-primary">Complete Order</a></td>
+            {% endif %}
+    {% endfor %}
+{% endblock %}
+</body>
+</html>

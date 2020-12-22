@@ -1,0 +1,52 @@
+<!-- Page that is used to display all the orders for a specific user, or if the user is an admin then this is a way for them to view all orders in a table format. -->
+{% extends "nav.html" %}
+{% block page %}
+<!-- The page will have the user's first and last name at the top, though this does not apply if the user is an admin, hence the use of an if statement here. -->
+{% if role != "admin" %}
+    <h1>Orders for {{ user_details["first_name"] }} {{ user_details["last_name"] }}</h1>
+{% else %}
+    <!-- If the user is an admin, the title simply reads "All Orders" -->
+    <h1>All Orders</h1>
+{% endif %}
+<table>
+    <tr>
+    <!-- Given that a user will not need to know the User ID of their order as all the orders belong to them, this column in the table only appears if an admin user is viewing it. -->
+    {% if role=="admin" %}
+      <th>User ID</th>
+    {% endif %} 
+      <th>Order ID</th>
+      <th>Item ID</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Date Ordered</th>
+      <th>Status</th>
+    <!-- If the user is an admin user, they will have an additional column with a link which when clicked allows the admin user to manage a specific order. -->
+    {% if role=="admin" %}
+        <th>Manage</th>
+    {% endif %}
+    </tr>
+    <!-- Iterates through the list of orders. If the user is a regular user, this will just be a list of their orders but if the user is an admin, this will be a list of all the orders in the database. -->
+    {% for order in orders %}
+        <tr>
+        <!-- Provides the User ID for this column -->
+        {% if role == "admin" %}
+            <td>{{ order[4] }}</td>
+        {% endif %}
+            <td>{{ order[0] }}</td>
+            <td>{{ order[1] }}</td>
+            <td>{{ order[2] }}</td>
+            <td>RM  {{ order[5] }}</td>
+            <td>{{ order[3] }}</td>
+            <td>{{ order[6] }}</td>
+        <!-- If the user is an admin and the order has yet to be complete, the Manage link will be clickable and this will allow the admin user to start the order completion process.-->
+        {% if role == "admin" and order[6]=="Incomplete" %}
+            <td><a href="/admin/orders/{{ order[0] }}">Manage</a></td>
+        </tr>
+        <!-- If the user is a regular user and the admin has changed the order status to 'pending', then there will be a button available for the user to click to be able to fully complete the order and change the order status from 'pending' to 'complete'.-->
+        {% elif order[6] == "Pending" and role!="admin" %}
+            <td><a href="/complete/{{ order[0] }}" class="btn btn-primary">Complete Order</a></td>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+</body>
+</html>
